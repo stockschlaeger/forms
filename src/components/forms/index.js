@@ -1,6 +1,4 @@
 // src/components/forms/index.js
-import React from "react";
-
 const context = require.context("./", false, /\.js$/);
 
 const forms = {};
