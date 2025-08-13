@@ -1,6 +1,14 @@
-// Export all forms from this central location
-export { default as ContactForm } from './ContactForm/ContactForm';
+// src/components/forms/index.js
+import React from "react";
 
-// Add new forms here as you create them:
-// export { default as FeedbackForm } from './FeedbackForm/FeedbackForm';
-// export { default as RegistrationForm } from './RegistrationForm/RegistrationForm';
+const context = require.context("./", false, /\.js$/);
+
+const forms = {};
+
+context.keys().forEach((key) => {
+    if (key === "./index.js") return; // Sich selbst überspringen
+    const moduleName = key.replace("./", "").replace(".js", "");
+    forms[moduleName] = context(key).default;
+});
+
+export default forms;
