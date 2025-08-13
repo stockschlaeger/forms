@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Users, Calendar, Clock, ChefHat, MessageSquare, Send } from 'lucide-react';
 
-export default function BBQForm() {
+export default function bbq2() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
