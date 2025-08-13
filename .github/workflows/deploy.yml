@@ -35,10 +35,6 @@ jobs:
       
       - name: Build and push Docker image
         run: |
-          echo "FROM nginx:alpine" > Dockerfile
-          echo "COPY build/ /usr/share/nginx/html/" >> Dockerfile
-          echo "EXPOSE 80" >> Dockerfile
-          
           IMAGE_TAG=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
           docker build -t $IMAGE_TAG .
           docker push $IMAGE_TAG
