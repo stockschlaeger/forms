@@ -54,12 +54,13 @@ jobs:
 
       - name: Create or update deployment
         run: |
+          IMAGE=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
           if kubectl get deployment react-app >/dev/null 2>&1; then
             echo "Updating existing react-app deployment..."
-            kubectl set image deployment/react-app react-app=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+            CONTAINER=$(kubectl get deployment react-app -o jsonpath='{.spec.template.spec.containers[0].name}')
+            kubectl set image deployment/react-app $CONTAINER=$IMAGE
           else
             echo "Creating new react-app deployment..."
-            kubectl create deployment react-app \
-              --image=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+            kubectl create deployment react-app --image=$IMAGE
             kubectl expose deployment react-app --port=80 --type=LoadBalancer
           fi
