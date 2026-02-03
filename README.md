@@ -94,3 +94,15 @@ src/
 - Docker
 - Kubernetes
 - GitHub Actions
+
+
+* Wie ist das Zusammenspiel zwischen BundID/eIDAS-Login und EUDI Wallet implementiert (insbesondere technische Übergabepunkte und Trust Anchor) 
+* Wer ist im öffentlichen Sektor typischerweise der Issuer der VCs?
+    * Fachverfahren selbst
+    * Zentrale Issuer-Komponente
+    * Übergeordnete Behörden
+* Wie wird ein Trust Anchor eingebunden um mind. LoA von Substanziell zu erreichen
+* Wie ist der Anwendungsfall umgesetzt, wenn Änderungen an einem VC notwendig werden (Widerruf, Ablauf, Änderungswünsche, etc - ich denke hier ist bei der Stadt Dresden ebenfalls ein großer Bedarf Änderungen zu berücksichtigen) 
+* Wie wird der Rückkanal sauber implementiert - Das ich ein VC auch sicher der Person ausstelle, die sich authentifiziert hat? Via PID? 
+* Wie wird revisionssicher dokumentiert, das ich tatsächlich der Person auch ein VC ausgestellt habe (quasi eine Art Empfangsquittung, sofern dies für die Anwendungsfälle relevant ist? 
+
